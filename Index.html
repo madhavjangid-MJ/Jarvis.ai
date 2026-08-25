@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JARVIS</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #050505;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 60px;
+      font-size: 42px;
+      letter-spacing: 8px;
+    }
+
+    #status {
+      color: #00e5ff;
+      margin: 20px;
+    }
+
+    #chat {
+      width: 90%;
+      max-width: 600px;
+      height: 350px;
+      margin: auto;
+      border: 1px solid #333;
+      border-radius: 15px;
+      padding: 15px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      text-align: left;
+    }
+
+    input {
+      width: 70%;
+      padding: 14px;
+      margin-top: 20px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 14px 20px;
+      margin-left: 5px;
+      border: none;
+      border-radius: 10px;
+      background: #00e5ff;
+      font-weight: bold;
+    }
+
+    .user {
+      color: #00e5ff;
+      margin: 12px 0;
+    }
+
+    .jarvis {
+      color: white;
+      margin: 12px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>JARVIS</h1>
+  <div id="status">ONLINE</div>
+
+  <div id="chat">
+    <div class="jarvis">
+      JARVIS: Hello. I'm ready.
+    </div>
+  </div>
+
+  <input id="message" placeholder="Talk to JARVIS...">
+  <button onclick="sendMessage()">SEND</button>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("message");
+      const chat = document.getElementById("chat");
+
+      const message = input.value.trim();
+
+      if (message === "") return;
+
+      chat.innerHTML +=
+        '<div class="user">YOU: ' + message + '</div>';
+
+      chat.innerHTML +=
+        '<div class="jarvis">JARVIS: I received your message. My AI brain is coming soon.</div>';
+
+      input.value = "";
+
+      chat.scrollTop = chat.scrollHeight;
+    }
+  </script>
+
+</body>
+</html>
